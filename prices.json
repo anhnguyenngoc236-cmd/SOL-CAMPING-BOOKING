@@ -1,0 +1,758 @@
+{
+ "_huongDan": "SỬA GIÁ: chỉ đổi con số sau chữ \"price\". Giữ nguyên dấu phẩy, dấu ngoặc kép và dấu ngoặc nhọn. Giá viết liền, không dấu chấm (ví dụ 755000). Sau khi lưu, tải lại trang để áp dụng.",
+ "updated": "2026-10-31",
+ "settings": {
+  "depositRate": 0.5,
+  "depositRoundTo": 1000,
+  "depositRounding": "nearest",
+  "defaultDurationHours": 6,
+  "defaultSource": "page",
+  "sources": [
+   "page",
+   "cG"
+  ],
+  "holidays": [],
+  "refundHours100": 72,
+  "refundHours50": 48,
+  "sheetCols": [
+   "ban",
+   "ghe",
+   "ban-go",
+   "bep-nho",
+   "bep-to",
+   "bep-ga",
+   "noi-lau",
+   "vi-nuong",
+   "than",
+   "ga"
+  ],
+  "sheetHeads": [
+   "Tên khách",
+   "SĐT",
+   "CTV",
+   "Check in",
+   "Tổng bill",
+   "Ngày cọc",
+   "Số tiền cọc",
+   "Bàn",
+   "Ghế",
+   "Bàn gỗ",
+   "Bếp nhỏ",
+   "Bếp to",
+   "Bếp gas",
+   "Nồi muối",
+   "Vỉ kẹp",
+   "Than",
+   "Gas",
+   "Đồ ăn",
+   "Ghi chú"
+  ]
+ },
+ "stayGroups": {
+  "Mặt biển": "Mỗi lượt sử dụng 6 tiếng",
+  "Bờ kè": "Mỗi lượt sử dụng 6 tiếng",
+  "Khu sân khấu": "Tổ chức sự kiện · giá theo lượt",
+  "Khu cộng đồng": "Bao khu · giá theo lượt"
+ },
+ "stays": [
+  {
+   "group": "Mặt biển",
+   "id": "combo-mb",
+   "name": "Combo mặt biển",
+   "desc": "Sàn + lều, gồm 1 bàn, 4 ghế · tối đa 18 người",
+   "price": 915000,
+   "per": "/ lượt 6 tiếng",
+   "cap": 18,
+   "sang": true,
+   "max": 20
+  },
+  {
+   "group": "Mặt biển",
+   "id": "san-mb",
+   "name": "Sàn mặt biển",
+   "desc": "Chưa gồm bàn ghế · tối đa 18 người",
+   "price": 595000,
+   "per": "/ lượt 6 tiếng",
+   "cap": 18,
+   "sang": true,
+   "max": 20
+  },
+  {
+   "group": "Bờ kè",
+   "id": "combo-bk",
+   "name": "Combo bờ kè",
+   "desc": "Sàn + lều, gồm 1 bàn, 2 ghế · tối đa 10 người",
+   "price": 455000,
+   "per": "/ lượt 6 tiếng",
+   "cap": 10,
+   "sang": true,
+   "max": 20
+  },
+  {
+   "group": "Bờ kè",
+   "id": "san-bk",
+   "name": "Sàn bờ kè",
+   "desc": "Chưa gồm bàn ghế · tối đa 10 người",
+   "price": 250000,
+   "per": "/ lượt 6 tiếng",
+   "cap": 10,
+   "sang": true,
+   "max": 20
+  },
+  {
+   "group": "Bờ kè",
+   "id": "ke-go",
+   "name": "Kè gỗ trung tâm",
+   "desc": "Gồm 8 ghế + 4 bàn",
+   "price": 350000,
+   "per": "/ lượt 6 tiếng",
+   "max": 1
+  },
+  {
+   "group": "Khu sân khấu",
+   "id": "party-st",
+   "name": "Khu sân khấu - Party",
+   "desc": "Dưới 50 người · không áp dụng bao khu",
+   "price": 1000000,
+   "per": "/ lượt",
+   "short": "Party",
+   "max": 1
+  },
+  {
+   "group": "Khu sân khấu",
+   "id": "skn-st",
+   "name": "Khu sân khấu - Sự kiện nhỏ",
+   "desc": "Dưới 100 người",
+   "price": 2000000,
+   "per": "/ lượt",
+   "short": "Sự kiện nhỏ",
+   "max": 1
+  },
+  {
+   "group": "Khu sân khấu",
+   "id": "skl-st",
+   "name": "Khu sân khấu - Sự kiện lớn",
+   "desc": "Từ 100 người trở lên",
+   "price": 5000000,
+   "per": "/ lượt",
+   "short": "Sự kiện lớn",
+   "max": 1
+  },
+  {
+   "group": "Khu cộng đồng",
+   "id": "skn-cd",
+   "name": "Khu cộng đồng - Sự kiện nhỏ",
+   "desc": "Dưới 100 người · bao khu",
+   "price": 1000000,
+   "per": "/ lượt",
+   "short": "Sự kiện nhỏ",
+   "max": 1
+  },
+  {
+   "group": "Khu cộng đồng",
+   "id": "skl-cd",
+   "name": "Khu cộng đồng - Sự kiện lớn",
+   "desc": "Từ 100 người trở lên · bao khu",
+   "price": 2500000,
+   "per": "/ lượt",
+   "short": "Sự kiện lớn",
+   "max": 1
+  }
+ ],
+ "billFixed": [
+  {
+   "label": "Bàn",
+   "ids": [
+    "ban"
+   ]
+  },
+  {
+   "label": "Ghế",
+   "ids": [
+    "ghe"
+   ]
+  },
+  {
+   "label": "Bếp nướng",
+   "ids": [
+    "bep-nho",
+    "bep-to"
+   ]
+  },
+  {
+   "label": "Than",
+   "ids": [
+    "than"
+   ]
+  }
+ ],
+ "rentals": [
+  {
+   "group": "thiet-bi",
+   "id": "ban",
+   "name": "Bàn camping",
+   "unit": "cái",
+   "price": 30000,
+   "note": "Dùng tại lều, sàn",
+   "billLabel": "Bàn",
+   "fmt": "star"
+  },
+  {
+   "group": "thiet-bi",
+   "id": "ghe",
+   "name": "Ghế camping",
+   "unit": "cái",
+   "price": 20000,
+   "note": "Dùng tại lều, sàn",
+   "billLabel": "Ghế",
+   "fmt": "star"
+  },
+  {
+   "group": "thiet-bi",
+   "id": "bep-nho",
+   "name": "Bếp nướng nhỏ",
+   "unit": "cái",
+   "price": 100000,
+   "note": "Chưa gồm than"
+  },
+  {
+   "group": "thiet-bi",
+   "id": "than",
+   "name": "Than",
+   "unit": "túi 2kg",
+   "price": 60000,
+   "fmt": "kg",
+   "kgPer": 2
+  },
+  {
+   "group": "thiet-bi",
+   "id": "bep-to",
+   "name": "Bếp nướng to",
+   "unit": "cái",
+   "price": 200000,
+   "note": "Chưa gồm than"
+  },
+  {
+   "group": "thiet-bi",
+   "id": "ban-go",
+   "name": "Bàn gỗ lớn",
+   "unit": "cái",
+   "price": 150000,
+   "note": "6 người/bàn · chỉ dùng tại khu sân khấu, cộng đồng"
+  },
+  {
+   "group": "thiet-bi",
+   "id": "bep-ga",
+   "name": "Bếp ga",
+   "unit": "cái",
+   "price": 50000
+  },
+  {
+   "group": "thiet-bi",
+   "id": "ga",
+   "name": "Ga",
+   "unit": "",
+   "price": 35000
+  },
+  {
+   "group": "thiet-bi",
+   "id": "noi-lau",
+   "name": "Nồi + muối lẩu",
+   "unit": "",
+   "price": 30000
+  },
+  {
+   "group": "thiet-bi",
+   "id": "vi-nuong",
+   "name": "Vỉ nướng kẹp",
+   "unit": "cái",
+   "price": 20000
+  },
+  {
+   "group": "thiet-bi",
+   "id": "da",
+   "name": "Đá",
+   "unit": "túi",
+   "price": 20000
+  },
+  {
+   "group": "dich-vu",
+   "id": "tu-camp",
+   "name": "Phí tự camp",
+   "unit": "người",
+   "price": 30000
+  },
+  {
+   "group": "dich-vu",
+   "id": "lua-trai",
+   "name": "Lửa trại",
+   "unit": "lần",
+   "price": 500000
+  },
+  {
+   "group": "dich-vu",
+   "id": "phu-thu-at",
+   "name": "Phụ thu âm thanh, ánh sáng công suất lớn",
+   "unit": "lượt",
+   "price": 1000000,
+   "note": "Khi tổ chức sự kiện dùng hệ thống công suất lớn"
+  }
+ ],
+ "menu": [
+  {
+   "tab": "Lẩu & BBQ",
+   "groups": [
+    {
+     "title": "BBQ",
+     "feat": true,
+     "items": [
+      {
+       "id": "bbq-bo-ke",
+       "name": "BBQ bờ kè",
+       "price": 755000,
+       "unit": "phần",
+       "desc": "Hàu, tôm, cánh gà, thịt ba chỉ lợn, bò nướng tảng, kim chi, bánh mỳ bơ, dưa chuột chẻ, rau củ + nước chấm + gia vị",
+       "tag": "2–3 người",
+       "bbq": true,
+       "short": "bờ kè"
+      },
+      {
+       "id": "bbq-mat-bien",
+       "name": "BBQ mặt biển",
+       "price": 1495000,
+       "unit": "phần",
+       "desc": "Hàu, mực hoặc bạch tuộc, tôm, cánh gà, thịt ba chỉ lợn, bò nướng tảng, lạp sườn, kim chi, bánh mỳ bơ, dưa chuột chẻ, rau củ + nước chấm + gia vị",
+       "tag": "5–6 người",
+       "bbq": true,
+       "short": "mặt biển"
+      }
+     ]
+    },
+    {
+     "title": "Lẩu cá song",
+     "items": [
+      {
+       "id": "ca-song-2",
+       "name": "Cá song 2kg",
+       "price": 1280000,
+       "unit": "phần"
+      },
+      {
+       "id": "ca-song-3",
+       "name": "Cá song 3kg",
+       "price": 1920000,
+       "unit": "phần"
+      },
+      {
+       "id": "ca-song-4",
+       "name": "Cá song 4kg",
+       "price": 2560000,
+       "unit": "phần"
+      }
+     ]
+    },
+    {
+     "title": "Lẩu thập cẩm",
+     "items": [
+      {
+       "id": "tc-1",
+       "name": "Thập cẩm 1",
+       "price": 1485000,
+       "unit": "phần",
+       "desc": "Ghẹ, bề bề, tôm, ngao, mực, bò",
+       "tag": "6 người"
+      },
+      {
+       "id": "tc-2",
+       "name": "Thập cẩm 2",
+       "price": 995000,
+       "unit": "phần",
+       "desc": "Bề bề, tôm, ngao, mực, bò",
+       "tag": "5 người"
+      },
+      {
+       "id": "tc-3",
+       "name": "Thập cẩm 3",
+       "price": 690000,
+       "unit": "phần",
+       "desc": "Tôm, ngao, mực, bò",
+       "tag": "4 người"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tab": "Hải sản",
+   "groups": [
+    {
+     "title": "Theo đĩa",
+     "items": [
+      {
+       "id": "hs-muc-hap",
+       "name": "Mực hấp",
+       "price": 350000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "hs-muc-nhung",
+       "name": "Mực nhúng lẩu",
+       "price": 350000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "hs-tom-nhung",
+       "name": "Tôm nhúng lẩu",
+       "price": 350000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "hs-tom-hap",
+       "name": "Tôm hấp",
+       "price": 350000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "hs-bo-nhung",
+       "name": "Bò nhúng lẩu",
+       "price": 220000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "hs-ngao-nhung",
+       "name": "Ngao nhúng lẩu (ngao trắng)",
+       "price": 150000,
+       "unit": "đĩa"
+      }
+     ]
+    },
+    {
+     "title": "Theo cân (kg)",
+     "items": [
+      {
+       "id": "hs-hum-tre-nuong",
+       "name": "Tôm hùm tre nướng",
+       "price": 1800000,
+       "unit": "kg"
+      },
+      {
+       "id": "hs-hum-tre-hap",
+       "name": "Tôm hùm tre hấp",
+       "price": 1800000,
+       "unit": "kg"
+      },
+      {
+       "id": "hs-hum-bong-hap",
+       "name": "Tôm hùm bông hấp",
+       "price": 2200000,
+       "unit": "kg"
+      },
+      {
+       "id": "hs-hum-bong-nuong",
+       "name": "Tôm hùm bông nướng",
+       "price": 2200000,
+       "unit": "kg"
+      },
+      {
+       "id": "hs-ghe",
+       "name": "Ghẹ hấp",
+       "price": 1100000,
+       "unit": "kg"
+      },
+      {
+       "id": "hs-cua-gach",
+       "name": "Cua gạch hấp",
+       "price": 1100000,
+       "unit": "kg"
+      },
+      {
+       "id": "hs-cua-thit",
+       "name": "Cua thịt hấp",
+       "price": 950000,
+       "unit": "kg"
+      },
+      {
+       "id": "hs-be-be",
+       "name": "Bề bề hấp",
+       "price": 800000,
+       "unit": "kg"
+      },
+      {
+       "id": "hs-oc-huong",
+       "name": "Ốc hương hấp",
+       "price": 750000,
+       "unit": "kg"
+      }
+     ]
+    },
+    {
+     "title": "Ngao hấp (theo bát)",
+     "items": [
+      {
+       "id": "hs-ngao-hoa",
+       "name": "Ngao hoa hấp",
+       "price": 300000,
+       "unit": "bát"
+      },
+      {
+       "id": "hs-ngao-2voi",
+       "name": "Ngao 2 vòi hấp",
+       "price": 300000,
+       "unit": "bát"
+      },
+      {
+       "id": "hs-ngao-vang",
+       "name": "Ngao vàng hấp",
+       "price": 350000,
+       "unit": "bát"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tab": "Đồ gọi thêm",
+   "groups": [
+    {
+     "title": "Đồ nướng",
+     "items": [
+      {
+       "id": "dg-hau-nuong",
+       "name": "Hàu nướng",
+       "price": 20000,
+       "unit": "con"
+      },
+      {
+       "id": "dg-hau-moi",
+       "name": "Hàu nướng mọi",
+       "price": 20000,
+       "unit": "con"
+      },
+      {
+       "id": "dg-hau-mohanh",
+       "name": "Hàu nướng mỡ hành",
+       "price": 20000,
+       "unit": "con"
+      },
+      {
+       "id": "dg-hau-phomai",
+       "name": "Hàu nướng phô mai",
+       "price": 20000,
+       "unit": "con"
+      },
+      {
+       "id": "dg-tom-muoi-ot",
+       "name": "Tôm ướp muối ớt",
+       "price": 210000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "dg-muc-sate",
+       "name": "Mực ướp sate (không ướp)",
+       "price": 210000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "dg-muc-kho",
+       "name": "Mực khô nướng",
+       "price": 300000,
+       "unit": "con"
+      },
+      {
+       "id": "dg-canh-ga",
+       "name": "Cánh gà",
+       "price": 85000,
+       "unit": "phần"
+      },
+      {
+       "id": "dg-ba-chi",
+       "name": "Thịt ba chỉ lợn",
+       "price": 125000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "dg-bo-tang",
+       "name": "Bò nướng tảng",
+       "price": 210000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "dg-lap-suon",
+       "name": "Lạp sườn tươi",
+       "price": 55000,
+       "unit": "phần"
+      }
+     ]
+    },
+    {
+     "title": "Gà nguyên con",
+     "items": [
+      {
+       "id": "dg-ga-nuong",
+       "name": "Gà nướng",
+       "price": 450000,
+       "unit": "con"
+      },
+      {
+       "id": "dg-ga-hap",
+       "name": "Gà hấp",
+       "price": 450000,
+       "unit": "con"
+      },
+      {
+       "id": "dg-ga-rang-muoi",
+       "name": "Gà rang muối",
+       "price": 450000,
+       "unit": "con"
+      }
+     ]
+    },
+    {
+     "title": "Ăn kèm & món chiên",
+     "items": [
+      {
+       "id": "dg-kim-chi",
+       "name": "Kim chi",
+       "price": 30000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "dg-banh-my",
+       "name": "Bánh mỳ bơ",
+       "price": 20000,
+       "unit": "phần"
+      },
+      {
+       "id": "dg-dua-chuot",
+       "name": "Dưa chuột chẻ",
+       "price": 20000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "dg-ngo-chien",
+       "name": "Ngô chiên",
+       "price": 50000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "dg-khoai-chien",
+       "name": "Khoai chiên",
+       "price": 50000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "dg-muc-chien",
+       "name": "Mực chiên + phồng tôm",
+       "price": 350000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "dg-phong-tom",
+       "name": "Phồng tôm",
+       "price": 50000,
+       "unit": "đĩa"
+      }
+     ]
+    },
+    {
+     "title": "Cơm & mỳ",
+     "items": [
+      {
+       "id": "dg-com-chien",
+       "name": "Cơm chiên hải sản",
+       "price": 180000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "dg-my-xao",
+       "name": "Mỳ xào hải sản",
+       "price": 180000,
+       "unit": "đĩa"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tab": "Cơm gia đình",
+   "groups": [
+    {
+     "title": "Món mặn",
+     "items": [
+      {
+       "id": "cgd-thit-rang",
+       "name": "Thịt rang cháy cạnh",
+       "price": 180000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "cgd-mam-tep",
+       "name": "Mắm tép chưng thịt",
+       "price": 150000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "cgd-trung-duc",
+       "name": "Trứng đúc thịt",
+       "price": 110000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "cgd-trung-ran",
+       "name": "Trứng rán",
+       "price": 70000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "cgd-trung-hau",
+       "name": "Trứng rán hàu",
+       "price": 170000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "cgd-ca-moi",
+       "name": "Cá mòi kho",
+       "price": 180000,
+       "unit": "nồi"
+      },
+      {
+       "id": "cgd-ca-thu",
+       "name": "Cá thu 1 nắng rán/sốt cà chua",
+       "price": 200000,
+       "unit": "đĩa"
+      },
+      {
+       "id": "cgd-ca-dui",
+       "name": "Cá đùi gà chiên mắm/rán",
+       "price": 180000,
+       "unit": "đĩa"
+      }
+     ]
+    },
+    {
+     "title": "Canh & cơm",
+     "items": [
+      {
+       "id": "cgd-canh-ngao",
+       "name": "Canh ngao chua",
+       "price": 80000,
+       "unit": "bát"
+      },
+      {
+       "id": "cgd-canh-thit",
+       "name": "Canh thịt chua",
+       "price": 80000,
+       "unit": "bát"
+      },
+      {
+       "id": "cgd-com",
+       "name": "Cơm trắng",
+       "price": 30000,
+       "unit": "bát"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
