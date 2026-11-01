@@ -486,13 +486,78 @@ function compute(){
   B.push(`- Tổng giá trị: ${money(total)} VNĐ`, `- Đặt cọc: ${money(dep)} VNĐ${depNote}`, `- Số tiền còn lại: ${money(remain)} VNĐ`);
 
   /* ---- mẫu XÁC NHẬN ---- */
-  const C = [`${T.confirmTitle || 'XÁC NHẬN ĐẶT CHỖ - SOL CAMPING'} `, ` Khách hàng: ${f.name}`, ` Số điện thoại: ${f.phone}`, 'Chi tiết đặt chỗ:',
-    `- Loại hình lều/sàn: ${stays.length ? stays.map(x => x.s.name + (x.n > 1 ? ' x' + x.n : '')).join(', ') : 'không thuê'}`,
+  const C = [
+    `${T.confirmTitle || 'XÁC NHẬN ĐẶT CHỖ - SOL CAMPING'}`,
+    ` - Khách hàng: ${f.name}`,
+    ` - Số điện thoại: ${f.phone}`,
+    '',
+    'Chi tiết đặt chỗ:',
+    `- Thời gian check in: ${viTime(f.inTime)} ngày ${viDate(f.inDate)}`,
+    `- Thời gian check out: ${viTime(f.outTime)} ngày ${viDate(f.outDate)}`,
+    `- Loại hình lều/sàn: ${stays.length ? stays.map(x => `${x.s.name}${x.n > 1 ? ' x' + x.n : ''} = ${money(x.a)}`).join(', ') : 'không thuê'}`,
     `- Số sàn: ${f.vitri.trim()}`,
-    `- Thời gian check in: ${viTime(f.inTime)} ngày ${viDate(f.inDate)} ( dự kiến )`,
-    `- Thời gian check out: ${viTime(f.outTime)} ngày ${viDate(f.outDate)} ( dự kiến )`,
-    `- Số khách: ${guestTxt}`,
-    `- Tổng giá trị: ${money(total)} VNĐ`, `- Đặt cọc: ${money(dep)} VNĐ${depNote}`, `- Số tiền còn lại: ${money(remain)} VNĐ`, ''].concat(T.confirmTail);
+    `- Số khách: ${guestTxt}`
+  ];
+
+  /* BBQ và các món ăn */
+  const bbqConfirm = food.filter(x => x.it.bbq);
+  const otherFoodConfirm = food.filter(x => !x.it.bbq);
+
+  if (bbqConfirm.length) {
+    bbqConfirm.forEach(x => C.push(
+      `- BBQ: ${x.it.short || x.it.name}${x.n > 1 ? ' x' + x.n : ''} = ${money(x.a)}`
+    ));
+  } else {
+    C.push('- BBQ: 0');
+  }
+
+  otherFoodConfirm.forEach(x => C.push(
+    `- ${x.it.name}: ${x.it.unit === 'kg'
+      ? `${kgTxt(x.n)}kg*${money(x.it.price)} = ${money(x.a)}`
+      : defFmt(x.n, x.it.price)}`
+  ));
+
+  /* Thiết bị và dịch vụ */
+  const confirmFixedIds = new Set();
+
+  (P.billFixed || []).forEach(g => {
+    const got = g.ids.map(id => {
+      confirmFixedIds.add(id);
+      return rent[id];
+    }).filter(Boolean);
+
+    if (got.length) {
+      got.forEach(x => C.push(
+        `- ${x.r.billLabel || x.r.name}: ${rentVal(x)}`
+      ));
+    } else {
+      C.push(`- ${g.label}: 0`);
+    }
+  });
+
+  P.rentals.forEach(r => {
+    if (confirmFixedIds.has(r.id) || !rent[r.id]) return;
+    C.push(`- ${r.billLabel || r.name}: ${rentVal(rent[r.id])}`);
+  });
+
+  /* Phụ thu và ghi chú */
+  extras.forEach(e => C.push(
+    `- ${e.name || 'Khoản khác'}: ${money(e.a)}`
+  ));
+
+  if (f.note.trim()) {
+    C.push(`- Ghi chú: ${f.note.trim().replace(/\s*\n\s*/g, '; ')}`);
+  }
+
+  /* Tổng tiền */
+  C.push(
+    `- Tổng giá trị: ${money(total)} VNĐ`,
+    `- Đặt cọc: ${money(dep)} VNĐ${depNote}`,
+    `- Số tiền còn lại: ${money(remain)} VNĐ`,
+    ''
+  );
+
+  C.push(...T.confirmTail);
 
   /* ---- dòng cho SHEET (cột C → U) ---- */
   const sc = P.settings.sheetCols || [];
