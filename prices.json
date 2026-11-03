@@ -41,7 +41,7 @@
    "Bếp nhỏ",
    "Bếp to",
    "Bếp gas",
-   "Nồi muối",
+   "Nồi muôi",
    "Vỉ kẹp",
    "Than",
    "Gas",
@@ -259,7 +259,7 @@
   {
    "group": "thiet-bi",
    "id": "noi-lau",
-   "name": "Nồi + muối lẩu",
+   "name": "Nồi + muôi lẩu",
    "unit": "",
    "price": 30000
   },
