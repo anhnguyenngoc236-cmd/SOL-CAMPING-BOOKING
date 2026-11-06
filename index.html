@@ -499,7 +499,7 @@ function compute(){
   /* ---- dòng cho SHEET (cột C → U) ---- */
   const sc = P.settings.sheetCols || [];
   const foodCell = food.map(x => `${x.it.unit === 'kg' ? kgTxt(x.n) + 'kg' : x.n} ${x.it.name}`).join('\n');
-  const notes = [];
+  const notes = [`Số khách: ${guestTxt}`];
   P.rentals.forEach(r => { if (sc.includes(r.id) || !rent[r.id]) return; const x = rent[r.id]; notes.push(`${r.name} ${x.n}${r.unit && r.unit !== 'cái' ? ' ' + r.unit : ''}`); });
   stays.filter(x => !x.s.sang || false).forEach(x => notes.push(x.s.name + (x.n > 1 ? ' x' + x.n : '')));
   extras.forEach(e => notes.push(`${e.name || 'Khoản khác'}${e.a ? ' ' + money(e.a) : ''}`));
