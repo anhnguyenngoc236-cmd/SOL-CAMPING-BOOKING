@@ -491,8 +491,8 @@ function compute(){
   const C = [`${T.confirmTitle || 'XÁC NHẬN ĐẶT CHỖ - SOL CAMPING'} `, ` Khách hàng: ${f.name}`, ` Số điện thoại: ${f.phone}`, 'Chi tiết đặt chỗ:',
     `- Loại hình lều/sàn: ${stays.length ? stays.map(x => x.s.name + (x.n > 1 ? ' x' + x.n : '')).join(', ') : 'không thuê'}`,
     `- Số sàn: ${f.vitri.trim()}`,
-    `- Thời gian check in: ${viTime(f.inTime)} ngày ${viDate(f.inDate)} ( dự kiến )`,
-    `- Thời gian check out: ${viTime(f.outTime)} ngày ${viDate(f.outDate)} ( dự kiến )`,
+    `- Thời gian check in: ${viTime(f.inTime)} ngày ${viDate(f.inDate)} `,
+    `- Thời gian check out: ${viTime(f.outTime)} ngày ${viDate(f.outDate)} `,
     `- Số khách: ${guestTxt}`].concat(D, [
     `- Tổng giá trị: ${money(total)} VNĐ`, `- Đặt cọc: ${money(dep)} VNĐ${depNote}`, `- Số tiền còn lại: ${money(remain)} VNĐ`, '']).concat(T.confirmTail);
 
